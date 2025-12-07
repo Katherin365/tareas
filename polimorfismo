@@ -1,0 +1,13 @@
+class Ave:
+    def hablar(self):
+        return "Pío pío"
+
+class Gato:
+    def hablar(self):
+        return "Miau miau"
+
+def hacer_hablar(animal):
+    print(animal.hablar())
+
+hacer_hablar(Ave())
+hacer_hablar(Gato())
