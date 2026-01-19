@@ -1,0 +1,53 @@
+
+# Clase base
+class Persona:
+    def __init__(self, nombre, edad):
+        # Encapsulación (atributos protegidos)
+        self._nombre = nombre
+        self._edad = edad
+
+    def describir(self):
+        return f"Nombre: {self._nombre}, Edad: {self._edad}"
+
+    # Método polimórfico
+    def rol(self):
+        return "Persona general"
+
+
+# Clase derivada (Herencia)
+class Estudiante(Persona):
+    def __init__(self, nombre, edad, carrera):
+        # Llamamos al constructor de la clase base
+        super().__init__(nombre, edad)
+        self.__carrera = carrera  # Encapsulación (atributo privado)
+
+    # Getter (Encapsulación)
+    def get_carrera(self):
+        return self.__carrera
+
+    # Setter (Encapsulación)
+    def set_carrera(self, carrera):
+        self.__carrera = carrera
+
+    # Polimorfismo (método sobrescrito)
+    def rol(self):
+        return "Estudiante universitario"
+
+    def describir(self):
+        return f"Nombre: {self._nombre}, Edad: {self._edad}, Carrera: {self.__carrera}"
+
+# Creación de objetos
+
+persona1 = Persona("Carlos", 40)
+estudiante1 = Estudiante("Katy", 20, "Tecnologías de la Información")
+
+# Uso de métodos
+print(persona1.describir())
+print("Rol:", persona1.rol())
+
+print("\n", estudiante1.describir())
+print("Rol:", estudiante1.rol())
+
+# Modificación usando encapsulación
+estudiante1.set_carrera("Ingeniería en Sistemas")
+print("\nCarrera actualizada:", estudiante1.get_carrera())
